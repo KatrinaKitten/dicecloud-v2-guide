@@ -92,30 +92,3 @@ And to finally get that naughty bitwise AND out of there, we can replace it with
 ```javascript
 truth = floor(bitfield / 8) % 2
 ```
-
-### Workaround: Modulus
-
-{% hint style="warning" %}
-This section will become obsolete in a future update of Dicecloud V2.
-{% endhint %}
-
-Unfortunately, our troubles don't end there, because due to an implementation oversight, Dicecloud doesn't have modulo either... yet. It will soon, which will make this process much cleaner, but for now, we need another layer of workarounds.
-
-Luckily, there's a simple mathematical equivalent to modulo that uses only operators and functions that Dicecloud actually has available right now:
-
-```javascript
-x % y == x - y*floor(x/y)
-```
-
-Since the right-hand side of our modulo operator \(`y`\) is always 2, expanding our current solution with that results in the following:
-
-```javascript
-floor(bitfield/8) - 2*floor(floor(bitfield/8)/2)
-```
-
-We can clean up and reduce that a bit further by removing the nested `floor`s and combining the divisions, which results in the following final equation:
-
-```javascript
-floor(bitfield/8) - 2*floor(bitfield/16)
-```
-

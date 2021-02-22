@@ -125,7 +125,7 @@ Returns the spell's school, in all lowercase characters.
 
 {% hint style="info" %}
 
-Additionally, all values that can be accessed using an ancestor reference in [actions](action.md) can also be accessed using an ancestor reference to a spell. {& endhint %}
+Additionally, all values that can be accessed using an ancestor reference in [actions](action.md) can also be accessed using an ancestor reference to a spell. {% endhint %}
 
 {% hint style="warning" %}
 All values marked with a \* can only be accessed using an ancestor reference.
